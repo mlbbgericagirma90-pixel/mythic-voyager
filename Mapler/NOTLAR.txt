@@ -1,0 +1,34 @@
+MAPLER
+
+Her harita kendi klasöründe: Harita01 ... Harita17.
+Harita01 çalışan tek harita. Harita02-17 boş iskelet.
+
+HARİTA SİSTEMİ
+- Ortak kod: Cekirdek/harita_motoru.js (defineMap, setActiveMap, onRoad, yükleme ve çizim).
+- Her harita kendi harita.js dosyasında defineMap('id', {...}) ile tanımlanır. Sadece o haritanın ayarları olur.
+- Yeni harita eklerken: klasörü aç, harita.js'i kopyala, id'yi ve ayarları değiştir (dir, W/H, maskN, maskSrc, parts), index.html'e harita.js satırını motordan sonra ekle.
+- Oyunda aktif harita setActiveMap('id') ile değişir. Geçiş kodu henüz yok.
+- 4 parça: sol_ust, sag_ust, sol_alt, sag_alt. Harita01 (yeni): parça 1691x1691, bindirme yok, W=H=3382, maske 1649.
+- Parçalar oyuncu 300 px yaklaşınca yüklenir, 600 px uzaklaşınca bırakılır.
+- Görseller Vercel'den çekilecek (dir alanı tam adres olacak). Maske şu an harita.js içinde gömülü, APK'da kalır.
+- WORLD=1248 görünüm ölçeği, harita boyutu değil; karakter ve animasyon bunu kullanır, değiştirme.
+- Canavar ve NPC konumları hâlâ Cekirdek/oyun_dongusu.js içinde (deneme değerleri).
+- Oyuncunun başlangıç konumu eski koordinatta, yeni haritada ayarlanmalı.
+
+- Harita01 yeni haritayla değişti (eski 3836). Canavar/NPC konumları ve başlangıç (px=430,py=350) eski koordinatta, yeniden ayarlanmalı.
+
+- Harita01/harita_ayar.js: karakter başlangıcı (715,828), karakter boyu 285, canavar konumları, M1 geçiş elipsi. Harita01/harita_kucuk.webp: harita penceresi için küçük görsel (113 KB).
+
+
+GÜNCELLEME — HARITA02 EKLENDI
+- Harita02/harita.js artık 4 parçalı haritayı ve gömülü yürüme maskesini tanımlar.
+- Parçalar 2604x2604, 12 px bindirme, birleşik dünya 5196x5196.
+- Harita01'deki M1 geçiş alanı mevcut Map Geçişi düğmesiyle Harita02'ye geçirir.
+- Harita02/NOTLAR.txt ve Harita01/NOTLAR.txt ayrıntıları içerir.
+
+GÜNCELLEME — POLİGON (2026-10-30)
+- Yürüme: HARITA_ALAN[id] = halka listesi (birleşik harita pikseli, çift-tek kuralı, delikler dahil). harita.js içinde maskSrc/gömülü PNG yok.
+- Maske görseli değişirse yeni PNG verilir, poligon yeniden üretilir. Yeni harita: harita_alan.js ekle, index.html'de harita_motoru.js'ten sonra yükle.
+
+GÜNCELLEME — HARITA02 BİNDİRME (2026-10-30)
+- Harita02 artık 4 px bindirme, parça aralığı 2600, dünya 5204x5204 (üstteki 12 px/5196 bilgisi eskidir).

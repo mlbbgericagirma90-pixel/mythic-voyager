@@ -1,0 +1,41 @@
+MENÜLER (arayüz ve açılır pencereler)
+(Açılış ekranı artık Giris/ klasöründe.)
+
+- market.js ............ market paneli
+- ayarlar.js ........... ayarlar paneli + güç/can/defans geliştirme (buyStat)
+- paneller.js .......... data-close butonları panelleri kapatır
+- olum_ekrani.js ....... "Öldün" ekranı (5 sn)
+- dugme_yerlesim.js .... Market/Envanter butonlarını ayarların altına dizer, Kaydet'i ayarların soluna alır
+
+Panellerin HTML'i index.html içinde, stilleri Cekirdek/stil.css içinde. Envanter paneli: Envanter/. Savaş ekranı: Savas/.
+
+
+GÜNCELLEME
+- harita_arayuz.js: sol üst seviye/EXP çubuğu, sağ üst harita ikonu (kuş bakışı pencere), M1'de 'Map Geçişi' butonu. Kendi görsel için Ikonlar/Resimler/map_gecisi.png koy.
+
+GÜNCELLEME
+- Market yeni 9 ekipman türünü gösterir; düşme oranı kartlarda gösterilmez. Ekipman ve envanter pencereleri görsel arka planları kullanır.
+
+
+GÜNCELLEME — MARKET KAYDIRMA (2026-10-29)
+- Market paneli #marketPanel .modalCard üzerinde dikey kaydırma kullanır; küçük ekranlarda tüm 9 eşya kartına ulaşılabilir.
+- CSS: Cekirdek/stil.css içindeki #marketPanel .modalCard; dokunma olayları: Cekirdek/baslat.js. Global touchmove engeli market kartının içinde kaydırmaya izin verecek şekilde istisnalıdır.
+- Market eşyaları ve fiyatları Menuler/market.js tarafından itemDefs kataloğundan üretilir; düşme oranları kartlarda gösterilmez.
+
+
+GÜNCELLEME — KÜÇÜK HARİTA (2026-10-29)
+- harita_arayuz.js küçük haritayı aktif haritaya göre çizer (Harita01: 3382, Harita02: 5196 ölçeği). Canavarlar m.harita ile süzülür, etiketler C1-C8; M1 halkası sadece Harita01.
+
+GÜNCELLEME — EKİPMAN/ENVANTER GÖRSELLERİ (2026-10-30)
+- Menuler/Resimler/envanter_menu.webp: ekipman VE envanter penceresinin ortak zemini (CSS: .equipmentArtCard, .inventoryArtCard). Tekrar görsel eklenmez.
+- Menuler/Resimler/Slotlar/: 11 ekipman kutusu (çerçeveli boş ikon). Konumlar Envanter/envanter.js içindeki EKIPMAN_YERLESIM (1024x1820 piksel).
+- Envanter verisi/arayüzü Envanter/ klasöründedir, Ekipmanlar/ değil.
+
+GÜNCELLEME (2026-10-30)
+- paneller.js: Android geri tuşu. history'ye giriş ekler; popstate'te önce açık menüyü kapatır (popup > harita > ayarlar > modal paneller), menü yoksa #exitConfirm sorar. Evet: kayıt + yerel çıkış komutları denenir (Capacitor/Cordova/Android.exitApp/window.close), olmazsa geri tuşuna bir kez daha basınca çıkar. Yeni panel eklenirse .modalPanel sınıfı kullan ki geri tuşu kapatsın.
+- market.js doluluk kontrolü bagCount('equip') kullanır.
+- Slotlar/ içine acik_slot.webp ve kilitli_slot.webp eklendi (envanter yuvaları).
+
+GÜNCELLEME (2026-10-31)
+- harita_arayuz.js: sol üst EXP çubuğu ve sağ üst harita düğmesi kaldırıldı (artık Ikonlar/ikonlar.js). Sadece kuş bakışı harita penceresi kaldı; window.openMiniMap() ile açılır. updateExpUi artık ikonlar.js içinde.
+- dugme_yerlesim.js: buton dizme kaldırıldı, sadece açılış perdesi zamanlayıcısı kaldı.

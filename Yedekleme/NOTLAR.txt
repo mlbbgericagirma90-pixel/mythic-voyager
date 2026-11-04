@@ -1,0 +1,34 @@
+YEDEKLEME (oyuncu verisi)
+
+- kayit.js ... saveGame / loadGame. Veri tarayıcıda (localStorage, anahtar: yolGezginSave_v1) saklanır.
+Kaydedilen: konum, altın, geliştirme seviyeleri, can, envanter, kuşanılan kılıç, canavar doğma durumu ve kalan süre.
+Otomatik: her 3 saniye ve sayfa kapanırken. Elle: Kaydet butonu.
+Kayıt yoksa: başlangıç altını (Degerler/karakter_degerleri.js) ve 1 kılıç verilir.
+
+ÖNEMLİ: yeni bir şey kaydedilecekse (elmas, yeni ekipman...) saveGame ve loadGame İKİSİNE de eklenmeli.
+Kayıt bozulmasın diye kayıt yapısı (version:1) değişiyorsa eski kayıtların yüklenmesi düşünülmeli.
+
+
+GÜNCELLEME
+- Kayıta playerLevel, playerExp ve canavar durumları (mons) eklendi. Eski kayıtlarda konum sıfırlanır (eski harita koordinatı), altın/envanter korunur.
+
+GÜNCELLEME
+- Yeni kayıt açıldığında artık başlangıç gümüş kılıcı verilmez; envanter boş başlar, başlangıç altını korunur.
+- Var olan kayıtların envanteri silinmez; oyuncunun daha sonra elde etmiş olabileceği kılıçları korumak için eski kayıt otomatik temizlenmez.
+
+
+GEÇİCİ TEST KILIÇI — KALDIRILDI
+- test_silver ekleyen geçici kayıt kodu kaldırıldı. Eski kayıtlar yüklenirken eski kılıçlar yeni eşya kataloğunda bulunmadığı için filtrelenir.
+
+GÜNCELLEME — EKİPMAN KAYDI
+- Kayıtta envanter, seçili eşya, kuşanılan slotlar, açılmış yuva sayısı ve sonraki yuva ücreti saklanır. Eski silah kayıtları kaldırılarak yeni eşya sistemine geçirilir.
+
+GÜNCELLEME (2026-10-30): Kayda extraTab (Büyülü Taş / Diğer Eşyalar sekme yuvaları) eklendi. Envanter üst sınırı INV_MAX=30; yuva sınırı ve envanter dizisi kesme sınırı buna göre.
+
+GÜNCELLEME (2026-10-31)
+- Kayda diamonds ve playerName eklendi. Kaydet düğmesi artık yazı değiştirmez; 'Kaydedildi' alt bildirimi çıkar.
+
+- Kayda acilanHaritalar ve aktifHarita eklendi; yüklemede aktif harita geri açılır (önceden hep Harita01 açılıyordu).
+
+GÜNCELLEME (2026-11-01)
+- Kayda afk eklendi (afkVeri/afkYukle, Kaynaklar/afk.js). Eski kayıtta afk yoksa süre ilk açılıştan başlar.

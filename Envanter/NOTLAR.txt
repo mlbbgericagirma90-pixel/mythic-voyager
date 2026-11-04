@@ -1,0 +1,33 @@
+ENVANTER
+
+- envanter.js ... 5 açık yuvalı, 25 yuvaya kadar genişleyen eşya çantası; kuşan/çıkar/sil ve renderInventory()
+Envanter HTML'i index.html içinde (id="inventoryPanel"). Kılıç resimleri ve artStyle(): Ekipmanlar/Silah/silah.js.
+Tüm yeni eşya türleri envantere girer; efsunlar ve kuşanılan slotlar Yedekleme/kayit.js içinde kaydedilir.
+
+GÜNCELLEME
+- Envanter artık tüm eşya türlerini ve efsunları tutar. İlk 5 yuva açık, toplam 25 yuvaya kadar açılabilir; ücret 30 altından başlar ve her alımda iki katına çıkar.
+- Ekipman ekranındaki çanta düğmesi envanteri açar. Eşya seçilince temel değerleri ve efsunu gösterilir; kuşanma/çıkarma slot türüne göre yapılır.
+
+
+GÜNCELLEME — GİZLİ ÇANTA TIKLAMA ALANI (2026-10-29)
+- Ekipman görselindeki equipmentBagBtn düğmesi CSS ile tamamen görünmez yapılmıştır (opacity:0, şeffaf arka plan/yazı); boyutu, konumu, erişilebilir etiketi ve click olayı korunur. Aynı alana dokununca envanter paneli açılmaya devam eder. Düğmeye pointer-events:none verilmemelidir.
+
+
+GÜNCELLEME — EKİPMAN YUVALARI (2026-10-29)
+- Sekiz ekipman yuvasının koordinatları sovalyeekipman.png içindeki gerçek çerçevelerle hizalandı. Boş yuva metinleri kaldırıldı; kuşanılan eşya ikonları çerçeve boyutuna göre gösterilir.
+- Yuva butonları ve tıklayınca ilgili eşya türü filtresiyle envanteri açma davranışı değişmedi.
+
+GÜNCELLEME — YENİ PANEL (2026-10-30)
+- renderEquipment 11 yuvayı EKIPMAN_YERLESIM (1024x1820 piksel) ile yerleştirir; ortada KARAKTER_EKIPMAN görseli, solda istatistik (renderStats), sağda çanta ikonu. Çanta düğmesi artık görünür; eski gizleme CSS kuralı kaldırıldı. Eski sekiz yuva/sovalyeekipman notları geçersiz.
+- Envanter ızgarası aynı zemini kullanır; yuva çerçeveleri CSS ile çizilir.
+
+GÜNCELLEME — SEKMELİ ENVANTER (2026-10-30)
+- Zemin: Menuler/Resimler/envanter_menu.webp; parçalar (sekme, seçili sekme, şerit): Envanter/Resimler/. Açık/kilitli yuva: Menuler/Resimler/Slotlar/acik_slot.webp, kilitli_slot.webp. Geri/Toplu seçme ikonları: Ikonlar/Resimler/.
+- Yerleşim 1024x1820 pikselden yüzdeye çevrildi (stil.css sonundaki "Envanter" bölümü). 5x6 = 30 yuva (INV_MAX).
+- Sekme: inventoryTab ('equip'|'stone'|'other'). Eşya hangi sekmeye ait: item.tab (yoksa 'equip'). Yeni taş/diğer eşya eklerken item.tab='stone'/'other' ver.
+- Yuvalar: ekipman sekmesi unlockedSlots/nextSlotCost; diğerleri extraTab.stone/other {u,c}. Her satın alımda fiyat x2 (30'dan).
+- Kuşanılan eşya çantadan sayılmaz: doluluk için bagCount('equip') kullan (market, düşme, çıkarma buna bakar). Çıkar: çanta doluysa engellenir.
+- Eşya popup'ı (invPopup): Kuşan/Sil/Sat. Sat fiyatı sellPrice() = floor(price/3). Ekipman panelinde dolu yuva popup'ı (equipPopup): Çıkar/Değiştir; boş yuva envanteri o türe filtreli açar.
+- Toplu seçim: bulkMode; Sat toplam fiyatı verir, Sil iki dokunuşla onaylanır.
+- Geri butonu ekipman paneline döner, X tamamen kapatır. Sekme etiketleri (EKİPMAN vb.) görselde yok, HTML metni.
+- Büyülü Taş / Diğer Eşyalar sekmelerinin içeriği henüz boş (sonra belirlenecek).

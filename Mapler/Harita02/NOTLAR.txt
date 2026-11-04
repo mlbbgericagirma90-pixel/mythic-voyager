@@ -1,0 +1,31 @@
+HARITA 02
+
+- harita.js haritayı defineMap('harita02', ...) ile tanımlar; index.html içinde Harita01 tanımından sonra yüklenir.
+- Görsel parçalar: sol_ust.webp (20261029120446), sag_ust.webp (20261029120421), sol_alt.webp, sag_alt.webp. Her parça 2604x2604; yatay/dikey yerleşimde 12 px bindirme vardır (stride 2592), birleşik boyut 5196x5196.
+- Yürüme haritası parçaları yurume_sol_ust.webp, yurume_sag_ust.webp, yurume_sol_alt.webp, yurume_sag_alt.webp olarak korunur. Yürüme maskesi harita.js içindeki gömülü PNG'dir; maskN=3274 ve dünya boyutu 5196 ile eşlenir.
+- Başlangıç noktası harita.js içindeki baslangic alanındadır. Geçiş, Harita01'deki M1 alanından Map Geçişi düğmesiyle yapılır.
+- Harita02 için canavar/NPC tanımlanmadı; Harita01 canavarları burada çizilmez ve savaş tetiklenmez.
+- Parça yollarını ve maskSrc data URI'sini koruyun. Harita parçası sıralaması/12 px bindirme değiştirilecekse hem W/H hem mask koordinatları birlikte kontrol edilmelidir.
+
+GÜNCELLEME — YÜRÜME PARÇALARI
+- yurume_sol_ust.webp, yurume_sag_ust.webp, yurume_sol_alt.webp, yurume_sag_alt.webp dosyaları kullanıcının son gönderdiği yürüyüş görselleriyle değiştirildi. Harita parça dosyaları ve gömülü maske değiştirilmedi.
+
+
+GÜNCELLEME — CANAVARLAR / M1 (2026-10-29)
+- harita_ayar.js eklendi (HARITA02_AYAR): 8 canavar (h2c1-h2c8) ve başlangıç. Koordinatlar 5196 uzayında; kullanıcı görseli (5208, parçalar bindirmesiz dizili) için x,y >= 2598 ise 12 px düşülmüştür.
+- Başlangıç artık M1 (4277,4152). harita.js içindeki eski baslangic, harita_ayar.js tarafından ezilir (harita.js değişmedi). index.html'de harita.js'ten sonra yüklenir.
+- Harita02'de Harita01 canavarları çizilmez/tetiklenmez (m.harita süzgeci).
+- Küçük harita: harita_kucuk.webp (640x640, 4 parçadan birleşik, 5196 ölçeği). Menuler/harita_arayuz.js aktif haritaya göre resim/ölçek/canavar seçer; etiketler C1-C8, beyaz nokta oyuncu.
+
+GÜNCELLEME — POLİGON (2026-10-30)
+- Yürüme alanı harita_alan.js (HARITA_ALAN['harita02']). harita.js içindeki gömülü maske silindi; maskN artık kullanılmaz.
+
+GÜNCELLEME — POLİGON YENİDEN ÜRETİLDİ (2026-10-30)
+- harita_alan.js yurume_*.webp OPAK (renkli) alanlarından üretildi: opak = yürünebilir, saydam = yürünemez. Parçalar 1649 px, bindirmesiz; 2604'e ölçeklenip 12 px bindirmeyle (0/2592) yerleştirildi. Kenar toleransı yok.
+- Yürüme görseli değişirse poligon yeniden üretilmeli.
+- Başlangıç = sag_alt yürüme görselindeki mavi daire (1075,993 → 4290,4161), harita_ayar.js.
+
+GÜNCELLEME — BİNDİRME 12 → 4 PX (2026-10-30)
+- Parça aralığı 2592 → 2600, harita 5196 → 5204. Önceki 12 px bindirme sağ/alt parçanın diğerinin kenarını siliyordu (içerikler aslında örtüşmüyor).
+- Sağ/alt parçadaki canavar ve başlangıç koordinatlarına +8 eklendi; poligon yeni dizilimle yeniden üretildi. Eski bu belgedeki 5196/2592 değerleri geçersiz.
+- Menuler/harita_arayuz.js HWS harita02 = 5204. harita_kucuk.webp aynı kaldı (fark ihmal edilebilir).

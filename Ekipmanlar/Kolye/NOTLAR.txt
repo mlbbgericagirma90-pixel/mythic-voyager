@@ -1,0 +1,6 @@
+KOLYE
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah
+
+GÜNCELLEME: Tahta Kolye tanımı Ekipmanlar/ekipman.js içinde; ikon Ekipmanlar/Resimler/tahta_kolye.png.

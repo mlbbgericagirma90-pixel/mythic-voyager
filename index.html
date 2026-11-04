@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"><meta name="theme-color" content="#17231d"><title>Yol Gezgin</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="Cekirdek/stil.css"></head><body><div id="intro" aria-label="Yol Gezgin yükleniyor"><div id="introSahne"><img id="introLogo" src="Giris/Resimler/logo.webp" alt=""><img id="introBar" alt=""></div><div id="introYukle"><div class="introDonen"></div><span>Yükleniyor...</span></div><audio id="introAudio" src="Sesler/Muzik/acilis.mp3" preload="auto"></audio></div><canvas id="game"></canvas><div id="hint">Yürümek için sol alttaki analogu kullan</div><div id="status">3. şahıs kamera</div><button id="settingsBtn" aria-label="Ayarlar">⚙</button><div id="settingsPanel" role="dialog" aria-label="Karakter özellikleri"><div class="statRow"><span>Saldırı</span><button id="strPlus" class="statPlus" type="button">+</button></div><div id="strCost" class="statCost">Maliyet: 30 altın</div><div id="strLevel" class="statLevel">Seviye: 0 · Hasar: 15</div>
+<div class="statRow statExtra"><span>Can</span><button id="hpPlus" class="statPlus" type="button">+</button></div><div id="hpCost" class="statCost">30 altın · +20 maksimum can</div><div id="hpLevel" class="statLevel">Maksimum can: 100</div>
+<div class="statRow statExtra"><span>Defans</span><button id="defPlus" class="statPlus" type="button">+</button></div><div id="defCost" class="statCost">30 altın · +3 defans</div><div id="defLevel" class="statLevel">Defans: 0 · Alınan hasar azalması: 0</div></div><button id="saveBtn" type="button">💾 Kaydet</button><div id="marketPanel" class="modalPanel"><div class="modalCard"><div class="modalHead"><span>🛡️ Ekipman Marketi</span><button class="closeModal" data-close="marketPanel">✕</button></div><div id="marketGrid" class="swordGrid"></div></div></div><div id="equipmentPanel" class="modalPanel"><div class="artModalCard equipmentArtCard"><img id="equipCharImg" class="equipChar" alt=""><div id="equipmentSlots"></div><div id="equipStats"></div><button id="closeEquipmentBtn" class="artClose" aria-label="Kapat"><img src="Ikonlar/Resimler/kapat.webp" alt=""></button><button id="equipStatBtn" class="equipIconBtn equipStatBtn" aria-label="İstatistik"><img src="Ikonlar/Resimler/istatistik.webp" alt=""></button><button id="equipmentBagBtn" class="equipIconBtn equipBagBtn" aria-label="Envanter"><img src="Ikonlar/Resimler/envanter.webp" alt=""></button><div id="equipPopup" class="itemPopup"><div class="popCard"><div id="equipPopName"></div><div id="equipPopInfo"></div><div class="popActions"><button id="unequipBtn" class="gameBtn" type="button">Çıkar</button><button id="changeEquipBtn" class="gameBtn" type="button">Değiştir</button></div></div></div></div></div><div id="inventoryPanel" class="modalPanel"><div class="artModalCard inventoryArtCard"><button id="bulkBtn" class="invTopBtn invBulk" type="button" aria-label="Toplu seçim"><img src="Ikonlar/Resimler/toplu_secme.webp" alt=""></button><button id="inventoryFilter" class="inventoryFilter" type="button" style="display:none"></button><button id="invBackBtn" class="invTopBtn invBack" type="button" aria-label="Geri"><img src="Ikonlar/Resimler/geri.png" alt=""></button><button id="closeInventoryBtn" class="invTopBtn invClose" type="button" aria-label="Kapat"><img src="Ikonlar/Resimler/kapat.webp" alt=""></button><button class="invTab" data-tab="equip" type="button" style="left:5.08%"><img class="tabBase" src="Envanter/Resimler/sekme_ekipman.webp" alt=""><img class="tabSel" src="Envanter/Resimler/secili_sekme.webp" alt=""><span>EKİPMAN</span></button><button class="invTab" data-tab="stone" type="button" style="left:35.55%"><img class="tabBase" src="Envanter/Resimler/sekme_tas.webp" alt=""><img class="tabSel" src="Envanter/Resimler/secili_sekme.webp" alt=""><span>BÜYÜLÜ TAŞ</span></button><button class="invTab" data-tab="other" type="button" style="left:66.02%"><img class="tabBase" src="Envanter/Resimler/sekme_diger.webp" alt=""><img class="tabSel" src="Envanter/Resimler/secili_sekme.webp" alt=""><span>DİĞER EŞYALAR</span></button><img class="invSerit" src="Envanter/Resimler/serit.png" alt=""><div id="inventorySlots"></div><div id="invBulkBar"><span id="bulkCount">0 seçili</span><button id="bulkSellBtn" type="button">Sat</button><button id="bulkDelBtn" type="button">Sil</button></div><div id="invPopup" class="itemPopup"><div class="popCard"><div id="invSelectedName"></div><div id="invSelectedInfo"></div><div class="popActions"><button id="equipItemBtn" class="gameBtn" type="button">Kuşan</button><button id="deleteItemBtn" class="gameBtn" type="button">Sil</button><button id="sellItemBtn" class="gameBtn" type="button">Sat</button></div></div></div></div></div><button id="marketBtn" type="button" style="position:fixed;right:14px;top:calc(env(safe-area-inset-top) + 60px);z-index:29;width:108px;padding:9px 8px">🛒 Market</button><button id="equipBtn" type="button" style="position:fixed;right:14px;top:calc(env(safe-area-inset-top) + 106px);z-index:29;width:108px;padding:9px 8px">🛡️ Ekipman</button><button id="bagBtn" type="button" style="position:fixed;right:14px;top:calc(env(safe-area-inset-top) + 106px);z-index:29;width:auto;padding:8px 12px;display:none">🎒 Ekipman</button><div id="dropNotice"></div><div id="exitConfirm"><div class="exitCard"><div>Çıkmak istediğinize emin misiniz?</div><div class="exitBtns"><button id="exitYes" class="gameBtn" type="button">Evet</button><button id="exitNo" class="gameBtn" type="button">Hayır</button></div></div></div><div id="joy"><div id="knob"></div></div><button id="reset" aria-label="Başa dön">↺</button>
+
+<div id="deathOverlay" aria-live="polite"><div class="dTitle">ÖLDÜN</div><div class="dSub">Yeniden doğmak için bekle</div><div id="deathCount">5</div></div><div id="battle" aria-hidden="true"><div id="battleTitle">KARŞILAŞMA</div><div id="battleScene"><div class="fighter" id="playerFighter"><img id="battleHero" alt="Kutsal Şövalye"><img id="fxClaw" class="fx fxClaw" alt=""></div><div class="fighter" id="monsterFighter"><img id="battleMonster" alt="Canavar"><img id="fxSlash" class="fx fxSlash" alt=""></div></div><div id="battleHud"><div><div class="hudName">Kutsal Şövalye</div><div class="hpOuter"><div class="hpFill" id="heroHpBar"></div></div><div class="hpText" id="heroHpText">100 / 100 HP</div></div><div><div class="hudName">Orman Kertenkelesi</div><div class="hpOuter"><div class="hpFill" id="monsterHpBar"></div></div><div class="hpText" id="monsterHpText">100 / 100 HP</div></div><div class="battleMsg" id="battleMsg">Canavarla karşılaştın!</div><div id="battleActions"><button id="attackBtn" type="button">⚔ Saldır</button><button id="cancelBattleBtn" type="button">İptal</button><button id="continueBtn" style="display:none">Haritaya dön</button></div></div></div>
+<script src="Cekirdek/cekirdek_temel.js"></script>
+<script src="Cekirdek/harita_motoru.js"></script>
+<script src="Mapler/Harita01/harita_alan.js"></script>
+<script src="Mapler/Harita02/harita_alan.js"></script>
+<script src="Mapler/Harita01/harita.js"></script>
+<script src="Mapler/Harita02/harita.js"></script>
+<script src="Mapler/Harita01/harita_ayar.js"></script>
+<script src="Mapler/Harita02/harita_ayar.js"></script>
+<script src="Karakterler/karakter_gorselleri.js"></script>
+<script src="Karakterler/karakter_animasyon.js"></script>
+<script src="Ekipmanlar/ekipman.js"></script>
+<script src="Degerler/karakter_degerleri.js"></script>
+<script src="Degerler/canavar_degerleri.js"></script>
+<script src="Degerler/exp.js"></script>
+<script src="Degerler/element.js"></script>
+<script src="Canavarlar/Harita01 C/harita01_canavarlar.js"></script>
+<script src="Canavarlar/Harita02 C/harita02_canavarlar.js"></script>
+<script src="Kaynaklar/altin.js"></script>
+<script src="Kaynaklar/elmas.js"></script>
+<script src="Kaynaklar/canavar_ozu.js"></script>
+<script src="Kaynaklar/parcacik.js"></script>
+<script src="Savas/savas_degiskenleri.js"></script>
+<script src="Savas/savas_gorselleri.js"></script>
+<script src="Ekipmanlar/Silah/silah.js"></script>
+<script src="Envanter/envanter.js"></script>
+<script src="Menuler/olum_ekrani.js"></script>
+<script src="Savas/savas.js"></script>
+<script src="Menuler/market.js"></script>
+<script src="Menuler/ayarlar.js"></script>
+<script src="Menuler/paneller.js"></script>
+<script src="Kaynaklar/afk.js"></script>
+<script src="Yedekleme/kayit.js"></script>
+<script src="Menuler/harita_arayuz.js"></script>
+<script src="Ikonlar/ikonlar.js"></script>
+<script src="Cekirdek/oyun_dongusu.js"></script>
+<script src="Cekirdek/joystick.js"></script>
+<script src="Giris/acilis.js"></script>
+<script src="Cekirdek/baslat.js"></script>
+<script src="Menuler/dugme_yerlesim.js"></script>
+
+</body></html>

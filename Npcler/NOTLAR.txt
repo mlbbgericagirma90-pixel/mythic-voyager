@@ -1,0 +1,9 @@
+NPCLER
+
+Her haritada 1 NPC olacak: npc_harita01.js ... npc_harita17.js (hepsi şimdilik BOŞ).
+Dosya adları haritayla eşleşir (Harita01'in NPC'si = npc_harita01.js). NPC'nin adı belli olunca dosya yeniden adlandırılabilir.
+Resimler/ .... NPC resimleri
+
+Her NPC dosyasında olacaklar: ad, resim, haritadaki yeri (Mapler/HaritaXX/harita.js ile uyumlu), konuşma metinleri, varsa görev/satış.
+Bağlantılar: Mapler (yeri), Menuler (konuşma penceresi), Kaynaklar ve Ekipmanlar (görev ödülü / satış).
+Konuşma penceresi henüz yok; ilk NPC yapılırken Menuler/ içine eklenecek.

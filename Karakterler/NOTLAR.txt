@@ -1,0 +1,26 @@
+KARAKTERLER
+
+- karakter_gorselleri.js .. envanter portresi, savaş portresi, yedek karakter resmi (hero)
+- karakter_animasyon.js ... Kutsal Şövalye HERO modülü: 8 yön koşu + durma. Test dosyasındaki mantıkla yazıldı.
+- Resimler/kosu/ .......... sprite sayfaları (sayfa_alt, sayfa_alt_sag, sayfa_ust, sayfa_ust_sag, sayfa_sag).
+  Her sayfada yan yana koşu kareleri, en sonda duruş karesi. 320x249 hücre, ayak noktası (160,233).
+- Resimler/animasyon/ ..... eski 4 karelik koşu (oyun kullanmıyor, yedek)
+- Resimler/animasyon_eski/ . düzeltilmemiş orijinaller (yedek)
+
+AYARLAR (karakter_animasyon.js içinde)
+- HIZ (2.6): saniyede kaç vücut boyu yürüyor
+- ADIM (1.8): bir adım uzunluğu, koşu hızını belirler
+- OLU_BOLGE (0.18): analog stick ölü bölgesi
+
+BOYUT
+- Karakterin ekrandaki boyu oyun_dongusu.js içinde: ch = min(H*.17, WORLD*scale*.0525). Yeni haritaya göre değiştirilecekse bu satır.
+
+BAĞLANTILAR
+- Cekirdek/oyun_dongusu.js drawHeroAnim() çağırır.
+- Can/saldırı: Degerler/karakter_degerleri.js
+- Karakter adı: index.html (battle HUD) ve Savas/savas.js
+
+GÜNCELLEME — EKİPMAN GÖRSELLERİ (2026-10-30)
+- Kutsal_Sovalye/, Kizil_Tanrica/, Ragnar/, Orman_Perisi/ klasörlerinde ekipman_gorsel.webp var; ekipman penceresinin ortasında seçili karakter gösterilir.
+- Kodda: karakter_gorselleri.js içinde secilenKarakter ve KARAKTER_EKIPMAN (konum/boyut). Karakter seçim ekranı gelince secilenKarakter oradan atanmalı (kayda henüz yazılmıyor).
+- Kostumler/ boş, sonra eklenecek. Koşu/portre görselleri hâlâ Resimler/ içinde.

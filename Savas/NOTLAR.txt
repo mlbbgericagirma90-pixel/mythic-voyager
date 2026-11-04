@@ -1,0 +1,25 @@
+SAVAŞ
+
+- savas_degiskenleri.js ... savaş sırasındaki durum (can, hasar, tur, zamanlayıcı)
+- savas_gorselleri.js ..... savaş ekranı resimleri ve efektler (Resimler/kesik_efekti.png, pence_efekti.png)
+- savas.js ................ startBattle, battleHit, finishBattle, closeBattle, savaş HUD
+
+Savaş otomatik: 1 saniyede bir vuruş. Canavar ölünce altın kazanılır, silah düşebilir (Ekipmanlar/Silah/silah.js dropSword), doğma süresi başlar.
+Sayılar: Degerler/. Ölüm ekranı: Menuler/olum_ekrani.js. Savaş ekranının HTML'i index.html içinde (id="battle"), stili Cekirdek/stil.css.
+
+
+GÜNCELLEME
+- Kahraman her 1,2 sn, canavar kendi hızında vurur (heroStrike / monsterStrike). Öldürünce altın + EXP (seviye sınırı kuralıyla).
+
+GÜNCELLEME — CANAVAR SEVİYE CEZASI
+- Savas/savas.js içinde monsterStatsForLevel() savaş başında oyuncunun seviyesini canavarın Degerler/canavar_degerleri.js içindeki gerekenSeviye değeriyle karşılaştırır.
+- Her eksik seviye canı 1,3 ile, canavarın minimum ve maksimum vuruş hasarını 2 ile çarpar; eksik seviyeler üslü/çarpanlı uygulanır. Can yukarı yuvarlanır.
+- Harita01 gereksinimleri: c1=1, c2=4, c3=7, c4=10, c5=13, c6=16, boss c7=HARITA01_AYAR.sonSeviye-1 (şu an 19).
+- Örnek kontrol: c2'nin 257 canı ve 17–23 vuruşu, oyuncu seviye 1 iken 565 can ve 136–184 vuruş olur. Seviye 4'te temel değerleri kullanılır.
+- Canavarlar seviye düşük diye kilitlenmez; eksik seviyeye göre güçlenir. Savaş ekranı başlangıç mesajında gereken/eksik seviye ve çarpanlar gösterilir.
+
+
+GÜNCELLEME — SEVİYE ATLAMA UI (2026-10-29)
+- Savaşta EXP kazanımı seviye atlattığında updateGold() çağrılır; saldırı, can ve savunma değerlerini gösteren arayüz yeni seviye bonuslarını yeniler. Seviye bonuslarının hesaplaması Degerler/exp.js ve Degerler/karakter_degerleri.js içindedir.
+
+GÜNCELLEME (2026-10-30): Savaş ekranı boyutu stil.css sonunda: #playerFighter %24 (eski %36'nın 2/3'ü), #monsterFighter %44, #battleMonster yükseklik %100. Boyut değiştirirken buraya bak.

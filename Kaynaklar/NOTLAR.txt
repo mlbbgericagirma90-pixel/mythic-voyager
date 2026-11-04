@@ -1,0 +1,17 @@
+KAYNAKLAR
+
+4 kaynak olacak:
+- altin.js ......... ÇALIŞIYOR (gold değişkeni + updateGold ekran yazısı). Altın kazanma Savas/savas.js'te, harcama Menuler/market.js ve ayarlar.js'te.
+- elmas.js ......... boş
+- canavar_ozu.js ... boş
+- parcacik.js ...... boş (item parçalayınca kazanılacak)
+
+Yeni kaynak eklerken: değişken + ekranda gösterim + Yedekleme/kayit.js içine kaydetme/yükleme eklenmeli.
+
+GÜNCELLEME (2026-10-31)
+- elmas.js ÇALIŞIYOR: diamonds, updateDiamonds(), addDiamonds(n). Kayıtta tutulur. Kazanma/harcama sistemi henüz yok.
+- altin.js: formatBirim(n) (9999'a kadar düz, sonra 10K/10.1M/10B). Altın ve elmas ekranda bunu kullanır.
+
+GÜNCELLEME — AFK (2026-11-01)
+- afk.js: AFK geliri. Her 10 dk son haritadan 1 canavar, maks 8 saat, kapalıyken de (zaman damgası). Şans: normal 70/yüksek 20/elit 8/boss 2; harita canavarları sırayla 3 gruba bölünür, sonuncu boss. Itemler afkItems[{id,enchant}] ayrı satır (efsunlu), Topla envantere ekler (dolunca kalan bekler). Altın da toplanır, EXP yok.
+- Panel görseli: Ikonlar/Resimler/afk_panel.webp. Ikonlar/ikonlar.js afkBtn -> afkAc(). Script sırası: paneller.js'ten sonra, kayit.js'ten önce.

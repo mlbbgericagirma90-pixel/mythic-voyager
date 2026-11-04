@@ -1,0 +1,6 @@
+KÜPE
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah
+
+GÜNCELLEME: Tahta Küpe tanımı Ekipmanlar/ekipman.js içinde; ikon Ekipmanlar/Resimler/tahta_kupe.png.

@@ -1,0 +1,16 @@
+SESLER
+
+- ses.js ......... BOŞ: ses yöneticisi (çalma, ses seviyesi, sessiz) buraya gelecek
+- Muzik/ .......... arka plan müziği (örn. harita01.mp3 ... harita17.mp3, savas.mp3, menu.mp3)
+- Efekt/ .......... kısa ses efektleri (kilic_vurus.mp3, altin.mp3, buton.mp3, olum.mp3...)
+
+Dikkat edilecekler:
+- Telefonda (APK/WebView) ses, kullanıcı ekrana dokunmadan başlamayabilir. İlk dokunuştan sonra çalmak gerekir.
+- Dosyalar küçük olsun: müzik için mp3 (düşük bit hızı), efektler kısa. Hepsi aynı anda yüklenmesin; müzik sadece o harita açılınca yüklenmeli (donmayı önlemek için).
+- Dosya adlarında Türkçe karakter ve boşluk kullanma.
+- Ses seviyesi/sessiz ayarı Menuler/ayarlar.js içine eklenecek ve Yedekleme/kayit.js ile kaydedilecek.
+
+
+GÜNCELLEME — AÇILIŞ SESİ (2026-10-29)
+- Muzik/acilis.mp3 açılış ekranı boyunca döngüde çalar; Giris/acilis.js ekranı kapatırken sesi durdurur ve başa sarar.
+- Android WebView sesin kullanıcı etkileşimi olmadan başlamasını engelleyebilir; acilis.js ilk dokunuşta play() çağrısını tekrar dener. Ses başlamazsa cihaz/WebView otomatik oynatma politikası kontrol edilmelidir.

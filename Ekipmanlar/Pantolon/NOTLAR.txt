@@ -1,0 +1,6 @@
+PANTOLON
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah
+
+GÜNCELLEME: Tahta Pantolon tanımı Ekipmanlar/ekipman.js içinde; ikon Ekipmanlar/Resimler/tahta_pantolon.png.

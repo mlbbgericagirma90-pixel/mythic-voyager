@@ -1,0 +1,6 @@
+KASK
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah
+
+GÜNCELLEME: Tahta Kask tanımı Ekipmanlar/ekipman.js içinde; ikon Ekipmanlar/Resimler/tahta_kask.png.

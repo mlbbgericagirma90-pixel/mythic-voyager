@@ -1,0 +1,40 @@
+DEĞERLER
+
+Oyundaki sayılar tek yerde:
+- karakter_degerleri.js ... başlangıç canı 270, saldırı 17; can artışı, savunma, geliştirme fiyatı ve başlangıç altını
+- canavar_degerleri.js .... her canavarın adı, canı, hasarı, altını, doğma süresi, savaş ekranı renk filtresi
+- exp.js .................. BOŞ (oyunda exp henüz yok)
+- element.js .............. BOŞ (element hasarı henüz yok)
+
+hasar/altin biçimi: [en_az, aralık]  ->  en_az + rastgele(0..aralık-1). Örnek [8,4] = 8-11 arası.
+
+Silah değerleri (hasar, defans, fiyat, düşme şansı) şimdilik Ekipmanlar/Silah/silah.js içinde. İstenirse buraya taşınır.
+
+
+GÜNCELLEME
+- exp.js ARTIK DOLU: seviye/EXP tablosu, expKazan(), seviye sınırı kuralı. Seviye başına can/saldırı/savunma artışı LEVEL_ARTIS içinde, şimdilik 0 (sayılar verilince yazılacak).
+- karakter_degerleri.js: eski başlangıç değerleri can 570/saldırı 27 idi; yeni ekipman güncellemesinde can 270, saldırı 17 oldu. Savunma 6, saldırı aralığı 1200 ms.
+- canavar_degerleri.js: canavar hızı (hiz, sn) ve exp eklendi. Doğma süreleri tahmini, değiştirilebilir.
+
+GÜNCELLEME — CANAVAR GEREKEN SEVİYESİ
+- canavar_degerleri.js içindeki her c1-c7 kaydında gerekenSeviye alanı bulunur.
+- Harita01: c1=1, c2=4, c3=7, c4=10, c5=13, c6=16. Boss c7'nin gereken seviyesi HARITA01_AYAR.sonSeviye-1 olarak belirlenir.
+- Eksik seviye çarpanını Savas/savas.js uygular; temel can/hasar değerlerini burada değiştirmeyin.
+
+GÜNCELLEME
+- Yeni karakter başlangıç değerleri: 270 can, 17 saldırı. Kuşanılan eşyaların temel değerleri ve efsunları savaş hesaplarına eklenir.
+
+
+GÜNCELLEME — SEVİYE BAŞINA KARAKTER GELİŞİMİ (2026-10-29)
+- Degerler/exp.js içinde her seviye atlamada +2 saldırı, +20 maksimum can ve +1 savunma verilir.
+- Ayrıca seviye başına %0,5 saldırı/can/savunma yüzdesi kazanılır; bu seviye kaynaklı bonus her özellik için %50 ile sınırlandırılır.
+- Degerler/karakter_degerleri.js sabit ve yüzdesel seviye bonuslarını ekipman ve efsun bonuslarıyla birlikte hesaplar. Efsun yüzdeleri kendi mevcut sınırlarını kullanmaya devam eder.
+
+
+GÜNCELLEME — HARITA02 CANAVARLARI
+- canavar_degerleri.js'e h2c1-h2c8 eklendi (geçici: can 1, hasar [1,1], altın 0, exp 0, gerekenSeviye 1, doğma 10 sn).
+
+GÜNCELLEME (2026-10-31)
+- karakter_degerleri.js: playerName değişkeni eklendi (oyuncu adı).
+
+- karakter_degerleri.js: acilanHaritalar listesi eklendi (geçilen haritalar).

@@ -1,0 +1,16 @@
+SİLAH
+
+- Eski beş kılıç kaldırıldı. Yeni silahlar (Ağaç Dalı ve Tahta Kılıç) Ekipmanlar/ekipman.js içindeki katalogdan gelir.
+- Eski kılıç resimleri klasörde yedek olarak kalabilir; oyun bunları kullanmaz.
+
+Bağlantılar: Degerler/karakter_degerleri.js (heroAttack kılıç hasarını ekler), Savas/savas.js (defans ve düşme), Menuler/market.js (satış), Envanter/envanter.js, Yedekleme/kayit.js (kılıç listesi kaydı).
+
+GÜNCELLEME
+- Başlangıçta ücretsiz gümüş kılıç verme işlemi kaldırıldı; yeni kayıt envanteri boş başlar. Kılıçlar marketten alınabilir veya canavarlardan düşebilir.
+
+
+GEÇİCİ TEST EKİPMANI — KALDIRILDI
+- test_silver ve eski kılıç tanımları kaldırıldı; yeni ekipman kataloğu Ekipmanlar/ekipman.js içindedir.
+
+GÜNCELLEME
+- Eski beş kılıç ve geçici test_silver kaldırıldı. Ekipman kataloğu Ekipmanlar/ekipman.js içindedir; silah.js yalnızca geriye dönük boş uyumluluk tanımı içerir.

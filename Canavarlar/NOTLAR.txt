@@ -1,0 +1,24 @@
+CANAVARLAR
+
+Her canavar için bir .js dosyası; resimler Resimler/ içinde.
+- kertenkele.js ........ Kırmızı Kertenkele (green)  [resim: Resimler/kertenkele.png]
+- mavi_kertenkele.js ... Mavi Orman Kertenkelesi (blue) [kertenkele resmini mavi filtreyle kullanır]
+- yilan.js ............. Zehirli Yılan (yellow)
+- ejderha.js ........... Ateş Ejderhası (black)
+
+Bu dosyalarda sadece resim ve "doğma durumu" var. Can, hasar, altın, doğma süresi: Degerler/canavar_degerleri.js
+Canavarın haritadaki yeri ve yaklaşınca savaşın başlaması: Cekirdek/oyun_dongusu.js (draw) içinde.
+Yeni canavar eklerken: yeni .js aç, Degerler/canavar_degerleri.js'e satır ekle, index.html'e <script> ekle. Kayıt için Yedekleme/kayit.js'e doğma durumunu ekle.
+
+
+GÜNCELLEME (Harita01 yeni canavarlar)
+- Artık yüklenen: harita01_canavarlar.js (C1-C7, MONS listesi, durum: avail/respawnAt). Resimler: Resimler/*.webp (kırpılmış).
+- Eski kertenkele.js, mavi_kertenkele.js, yilan.js, ejderha.js index.html'de yüklenmiyor (silinmedi, yedek).
+- Konum/boyut: Mapler/Harita01/harita_ayar.js. Değerler (can, hasar, hız, altın, exp, doğma): Degerler/canavar_degerleri.js (c1..c7).
+
+
+GÜNCELLEME — KLASÖRLER (Harita01 C / Harita02 C)
+- Harita01 canavarları: Canavarlar/Harita01 C/ (harita01_canavarlar.js + Resimler/). Eski Canavarlar/Resimler/*.webp (7 dosya) ve Canavarlar/harita01_canavarlar.js artık kullanılmıyor, silinebilir.
+- Harita02 canavarları: Canavarlar/Harita02 C/ (harita02_canavarlar.js + Resimler/). Konumlar: Mapler/Harita02/harita_ayar.js (5196 uzayı). Kimlikler h2c1-h2c8 (h2c8 boss).
+- Hepsi tek MONS listesinde; her kayıtta harita:'harita01'|'harita02'. Çizim, savaş tetikleme ve doğma Cekirdek/oyun_dongusu.js'te activeMap.id ile süzülür. index.html'de Harita02 C, Harita01 C'den sonra yüklenir.
+- Harita02 değerleri şimdilik: can 1, hasar 1, altın 0, exp 0, gerekenSeviye 1 (Degerler/canavar_degerleri.js).

@@ -1,0 +1,129 @@
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101713;font-family:system-ui,Arial;touch-action:none}#game{display:block;width:100vw;height:100dvh;touch-action:none}#hint{position:fixed;top:calc(env(safe-area-inset-top) + 12px);left:50%;transform:translateX(-50%);padding:8px 13px;background:#101713b8;color:#f4f0df;border:1px solid #ffffff28;border-radius:20px;font-size:12px;white-space:nowrap;pointer-events:none;backdrop-filter:blur(6px)}#joy{position:fixed;left:22px;bottom:calc(env(safe-area-inset-bottom) + 24px);width:136px;height:136px;border-radius:50%;background:#d9e6d51b;border:2px solid #ffffff52;box-shadow:inset 0 0 0 12px #ffffff08;touch-action:none}#knob{position:absolute;left:50%;top:50%;width:56px;height:56px;transform:translate(-50%,-50%);border-radius:50%;background:#dbe7d9b9;border:2px solid #fff9;box-shadow:0 3px 12px #0006;pointer-events:none}#goldCounter{position:fixed;left:14px;top:calc(env(safe-area-inset-top) + 12px);z-index:10;padding:8px 12px;border:1px solid #d6b45b88;border-radius:12px;background:#111b19d9;color:#ffe6a0;font-weight:800;font-size:15px;pointer-events:none;text-shadow:0 1px 2px #000}
+#settingsBtn{position:fixed;right:14px;top:calc(env(safe-area-inset-top) + 10px);z-index:30;width:42px;height:42px;border-radius:13px;border:1px solid #ffffff55;background:#17231ddd;color:#fff;font-size:22px;box-shadow:0 3px 12px #0005}
+#settingsPanel{position:fixed;right:14px;top:calc(env(safe-area-inset-top) + 60px);max-height:calc(100dvh - env(safe-area-inset-top) - 72px);overflow:auto;z-index:41;display:none;width:min(245px,calc(100vw - 28px));padding:16px;border:1px solid #d6b45b88;border-radius:16px;background:#142019f5;color:#f8f3df;box-shadow:0 10px 28px #0008}
+#settingsPanel.show{display:block}
+.statRow{display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:800;font-size:19px}
+#strPlus,.statPlus{width:40px;height:40px;border-radius:10px;border:1px solid #d6b45b;background:#3a3020;color:#ffe7a2;font-size:25px;font-weight:900;flex:0 0 auto}
+#strCost,.statCost{font-size:12px;color:#e8d9a9;margin-top:6px}
+#strLevel,.statLevel{font-size:12px;color:#c4d3c6;margin-top:4px}
+.statExtra{margin-top:15px;padding-top:12px;border-top:1px solid #ffffff1c}
+
+#saveBtn{position:fixed;right:64px;top:calc(env(safe-area-inset-top) + 10px);z-index:12;padding:8px 11px;border:1px solid #75b99b88;border-radius:12px;background:#10221be8;color:#d6ffe5;font-weight:800;font-size:12px}
+#marketBtn{display:block;width:100%;margin:12px 0 0;padding:11px;border:1px solid #d6b45b88;border-radius:12px;background:#111b19e8;color:#ffe6a0;font-weight:800;font-size:14px}
+#bagBtn{display:block;width:100%;margin-top:14px;padding:10px;border:1px solid #c5b17a;border-radius:11px;background:#293b2d;color:#f8e9b5;font-weight:800;font-size:15px}
+.modalPanel{position:fixed;inset:0;z-index:40;display:none;align-items:center;justify-content:center;background:#0009;padding:16px;color:#f5efdc}
+.modalPanel.show{display:flex}.modalCard{width:min(540px,100%);max-height:85dvh;overflow:auto;border:1px solid #c4a75d;border-radius:18px;background:#142019;padding:14px;box-shadow:0 12px 40px #000a}
+.modalHead{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:20px;margin-bottom:12px}.closeModal{border:1px solid #ffffff55;background:#29372d;color:#fff;border-radius:9px;padding:6px 11px;font-size:18px}
+.swordGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.swordCard{border:1px solid #bba66a66;border-radius:12px;padding:9px;background:#0c1411;text-align:center;min-width:0}
+.swordArt{height:82px;border-radius:8px;background:#101713;display:flex;align-items:center;justify-content:center;overflow:hidden}.swordArt img{height:100%;width:100%;object-fit:contain;display:block}
+.swordName{font-weight:850;font-size:14px}.swordMeta{font-size:12px;color:#e4d7b0;margin:4px 0 8px}.gameBtn{border:1px solid #d5b45f;border-radius:9px;background:#3a3020;color:#ffe7a2;padding:8px 10px;font-weight:800;width:100%}
+.inventoryLayout{display:grid;grid-template-columns:100px minmax(0,1fr);gap:10px;align-items:start}.inventoryHero{min-height:190px;background:#111a16;border:1px solid #a88c50;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px}.inventoryHeroImg{width:78px;height:112px;object-fit:contain;filter:drop-shadow(0 4px 4px #000)}.handSlot{width:70px;height:62px;border:2px solid #d7bc68;border-radius:8px;background:#25241c;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:24px;margin-top:10px}.handSlot small{font-size:9px;color:#e8d8a4}.inventoryContents{min-width:0}.swordCard .swordArt{height:78px!important;background-size:auto 78px!important}.swordGrid{gap:7px}.swordCard{padding:6px!important}.swordName{font-size:12px!important}@media(max-width:380px){.swordGrid{grid-template-columns:repeat(2,minmax(0,1fr))}#marketBtn{width:100%}#inventorySlots{gap:3px}.invSlot{font-size:9px}}
+
+#reset{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom) + 36px);width:48px;height:48px;border-radius:50%;border:1px solid #ffffff70;background:#17231dbb;color:white;font-size:22px}#status{position:fixed;top:calc(env(safe-area-inset-top) + 48px);left:50%;transform:translateX(-50%);font-size:10px;color:#f7f4e4a8;pointer-events:none}
+
+#battle{position:fixed;inset:0;z-index:20;display:none;background:#050505;color:#f4f0df;touch-action:none;overflow:hidden}
+#battle.show{display:flex;flex-direction:column}
+#battleTitle{padding:calc(env(safe-area-inset-top) + 18px) 12px 8px;text-align:center;font-weight:800;letter-spacing:2px;font-size:clamp(17px,4vw,24px)}
+#battleScene{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:space-between;padding:8px 9vw 0;overflow:hidden}
+.fighter{width:36%;height:70%;display:flex;align-items:center;justify-content:center;position:relative;transition:transform .28s ease}
+.fighter img{max-width:100%;max-height:100%;object-fit:contain;image-rendering:auto;filter:drop-shadow(0 8px 8px #0009)}
+#battleHero{height:88%;width:auto;max-width:100%}
+#battleMonster{height:80%;width:auto;max-width:100%}
+.fighter.hit{animation:hitShake .32s ease}
+@keyframes hitShake{0%{transform:translateX(0)}35%{transform:translateX(-10px)}70%{transform:translateX(7px)}100%{transform:translateX(0)}}
+#battleHud{padding:10px 18px calc(env(safe-area-inset-bottom) + 22px);display:grid;grid-template-columns:1fr 1fr;gap:14px;background:linear-gradient(transparent,#111 18%)}
+.hudName{font-weight:800;font-size:14px;margin-bottom:5px}.hpOuter{height:16px;border:1px solid #ddd;border-radius:3px;background:#3a1717;overflow:hidden}.hpFill{height:100%;width:100%;background:linear-gradient(#71d66c,#228a39);transition:width .25s}.hpText{font-size:12px;margin-top:4px;color:#ddd}.battleMsg{grid-column:1/-1;min-height:22px;text-align:center;font-size:13px;color:#e9d9a2;padding-top:1px}
+#battleActions{grid-column:1/-1;display:flex;justify-content:center;gap:10px;min-height:42px}#battleActions button{border:1px solid #bda66b;background:#28251d;color:#fff1c3;border-radius:9px;padding:10px 18px;font-weight:700;font-size:14px}#battleActions button:disabled{opacity:.45}#attackBtn{background:#59421b!important;border-color:#e3bf64!important}#cancelBattleBtn{background:#3a2424!important;border-color:#b77a72!important}
+@media (orientation:landscape){#battleScene{padding-left:14vw;padding-right:14vw} .fighter{height:75%;width:30%}#battleHud{padding:6px 12px calc(env(safe-area-inset-bottom) + 8px);gap:8px}#battleTitle{padding-top:calc(env(safe-area-inset-top) + 6px)}}
+
+#intro{position:fixed;inset:0;z-index:100;background:#080808;overflow:hidden;opacity:1;transition:opacity .7s ease;touch-action:manipulation}
+#intro.hide{opacity:0;pointer-events:none}
+#introSahne{position:absolute;left:50%;top:50%;width:max(100vw,47.39vh);height:max(211.0vw,100vh);transform:translate(-50%,-50%);background:url('../Giris/Resimler/acilis_arka_plan.webp') center/100% 100% no-repeat;overflow:hidden}
+#introBar{position:absolute;left:2%;top:54.8%;width:96%;height:39%;pointer-events:none}
+#introYukle{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;font:600 16px sans-serif;z-index:2;opacity:1;transition:opacity .35s ease}
+#introYukle.hide{opacity:0;pointer-events:none}
+.introDonen{width:42px;height:42px;border:4px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:introDon .8s linear infinite}
+@keyframes introDon{to{transform:rotate(360deg)}}
+#introLogo{position:absolute;left:7.13%;top:16.5%;width:86.2%;height:27.23%;pointer-events:none;filter:drop-shadow(0 .8vw 1.6vw rgba(0,0,0,.8));transform:scale(.3);opacity:0;transform-origin:50% 50%}
+#introLogo.zipla{animation:logoZipla 1.2s ease-out forwards}
+@keyframes logoZipla{0%{transform:scale(.3);opacity:0}15%{opacity:1}60%{transform:scale(1.07);opacity:1}80%{transform:scale(.98);opacity:1}100%{transform:scale(1);opacity:1}}
+
+.fighter img.fx{position:absolute!important;left:50%;top:50%;width:135%!important;max-width:none!important;max-height:none!important;height:auto!important;opacity:0;pointer-events:none;transform:translate(-50%,-50%);z-index:5}.fighter img.fxSlash{filter:drop-shadow(0 0 5px #fff)!important}.fighter img.fxClaw{filter:drop-shadow(0 0 7px #f33)!important}.fighter img.fx.play{animation:fxPlay .45s ease-out}@keyframes fxPlay{0%{opacity:0;transform:translate(-58%,-58%) scale(.7)}22%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.1)}}
+#deathOverlay{position:fixed;inset:0;z-index:70;display:none;flex-direction:column;align-items:center;justify-content:center;background:#240000ea;color:#ff5a4d;text-align:center;touch-action:none}#deathOverlay.show{display:flex}#deathOverlay .dTitle{font-size:clamp(46px,14vw,92px);font-weight:900;letter-spacing:4px;text-shadow:0 4px 18px #000}#deathOverlay .dSub{margin-top:8px;font-size:17px;color:#f4e3d8}#deathCount{font-size:58px;font-weight:900;margin-top:6px;color:#fff}
+@keyframes mBreath{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}#battleMonster{animation:mBreath 2.4s ease-in-out infinite}
+
+/* Yeni ekipman ve envanter görsel ekranları */
+.artModalCard{position:relative;width:min(90vw,48.375dvh);aspect-ratio:9/16;max-height:88dvh;border:0;border-radius:12px;overflow:hidden;background-color:#07111a;background-position:center;background-size:100% 100%;box-shadow:0 10px 40px #000b}
+.slotLabel{font-size:clamp(8px,2vw,12px);color:#f2e6c5;text-shadow:0 1px 3px #000;opacity:.75}
+.itemFallback{font-size:clamp(16px,5vw,28px);filter:drop-shadow(0 1px 3px #000)}
+#marketGrid .swordArt img{width:100%;height:100%;object-fit:contain}
+@media(max-height:600px){.artModalCard{max-height:92dvh;width:min(70vw,51.75dvh)}}
+
+/* Market: mobil WebView kaydırması; dokunma olayları içeride serbest. */
+#marketPanel .modalCard{max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y;min-height:0}
+#marketPanel .modalHead{position:sticky;top:-14px;z-index:2;background:#142019;padding-top:4px;padding-bottom:8px}
+/* Çanta düğmesi yerinde ve tıklanabilir kalır; yalnızca görseli saklanır. */
+
+/* Ekipman ve envanter: Menuler/Resimler/envanter_menu.webp (1024x1820) zemini; koordinatlar bu ölçüden yüzdeye çevrildi. */
+.equipmentArtCard,.inventoryArtCard{background-image:url('../Menuler/Resimler/envanter_menu.webp')}
+.equipChar{position:absolute;height:auto;pointer-events:none;user-select:none;-webkit-user-drag:none}
+#equipmentSlots{position:absolute;inset:0;pointer-events:none}
+.equipmentSlot{position:absolute;padding:0;border:0;background:transparent;pointer-events:auto}
+.equipmentSlot .slotBase{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.equipmentSlot .slotItem{position:absolute;inset:9%;background:#0b1822;display:flex;align-items:center;justify-content:center;border-radius:4px}
+.equipmentSlot .slotItem img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 1px 2px #000)}
+.artClose{position:absolute;left:68.75%;top:2.58%;width:14.45%;height:8.13%;padding:0;border:0;background:transparent}
+.artClose img,.equipIconBtn img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
+.equipIconBtn{position:absolute;top:82.4%;width:17.97%;height:10.1%;padding:0;border:0;background:transparent}
+.equipStatBtn{left:6.64%}.equipBagBtn{left:74.7%}
+#equipStats{position:absolute;left:9.8%;top:22%;width:80.4%;height:55%;display:none;flex-direction:column;justify-content:center;gap:1.2%;padding:3% 6%;background:#07111af0;border:2px solid #c8923a;border-radius:10px;color:#f4e3b0;z-index:5}
+#equipStats.show{display:flex}
+.statsTitle{text-align:center;font-weight:900;font-size:clamp(14px,3.6vw,22px);color:#ffd77a;margin-bottom:2%}
+.statsRow{display:flex;justify-content:space-between;font-size:clamp(11px,2.8vw,17px);border-bottom:1px solid #c8923a44;padding:1px 0}
+
+/* Savaş: karakter eski boyutun 2/3'ü, canavar karakterden büyük */
+#playerFighter{width:24%}#monsterFighter{width:44%}#battleMonster{height:100%}
+/* Envanter (1024x1820 ölçüsünden yüzdeye çevrildi) */
+.inventoryArtCard,.equipmentArtCard{container-type:inline-size}
+.invTopBtn{position:absolute;top:2.91%;width:14.65%;height:8.24%;padding:0;border:0;background:transparent}
+.invTopBtn img{width:100%;height:100%;object-fit:contain;display:block;pointer-events:none}
+.invBulk{left:10.74%}.invBack{left:57.62%}.invClose{left:74.51%}
+.invTopBtn.on{filter:drop-shadow(0 0 8px #7dff9b)}
+.inventoryFilter{position:absolute;left:28.3%;top:5%;width:27.3%;height:4%;border:1px solid #c8923a;border-radius:6px;background:#07111ad0;color:#ffe4a1;font-size:calc(2.2*0.9vw);font-size:2.2cqw;font-weight:800}
+.invTab{position:absolute;top:14.12%;width:29.1%;height:7.86%;padding:0;border:0;background:transparent}
+.invTab img{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.invTab .tabSel{display:none}.invTab.active .tabSel{display:block}
+.invTab span{position:absolute;left:0;right:0;bottom:6%;text-align:center;font:800 calc(2.5*0.9vw) Georgia,serif;font:800 2.5cqw Georgia,serif;color:#e8cf93;text-shadow:0 1px 3px #000;pointer-events:none}
+.invTab.active span{color:#fff1c3}
+.invSerit{position:absolute;left:0;top:20.88%;width:100%;height:6.6%;pointer-events:none}
+#inventorySlots{position:absolute;left:5.08%;top:26.21%;width:89.94%;height:64.18%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));column-gap:1.4%;row-gap:1.5%}
+#inventorySlots .invSlot{position:relative;min-width:0;min-height:0;width:100%;height:100%;padding:0;border:0;background:transparent}
+.invSlot .slotBg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.invSlot .slotIcon{position:absolute;inset:14%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.invSlot .slotIcon img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 1px 3px #000)}
+.invSlot .itemFallback{font-size:calc(7*0.9vw);font-size:7cqw}
+.invSlot.selected::after,.invSlot.picked::after{content:"";position:absolute;inset:3%;border:3px solid #ffe37a;border-radius:8px;box-shadow:0 0 10px #ffd34f;pointer-events:none}
+.invSlot .pickMark{position:absolute;right:8%;top:6%;color:#aaff9b;font-weight:900;font-size:calc(4*0.9vw);font-size:4cqw;text-shadow:0 1px 3px #000}
+.invSlot .coinTag{position:absolute;right:6%;bottom:5%;display:flex;align-items:center;font-size:calc(3.4*0.9vw);font-size:3.4cqw;font-weight:900;color:#ffe9ac;text-shadow:0 1px 3px #000;pointer-events:none}
+#invBulkBar{position:absolute;left:5.08%;width:89.94%;top:91.2%;height:4.8%;display:none;align-items:center;gap:2%;padding:0 2%;background:#07111af2;border:2px solid #c8923a;border-radius:8px;color:#ffe9ac;font-size:calc(2.6*0.9vw);font-size:2.6cqw;font-weight:800;box-sizing:border-box}
+#invBulkBar.show{display:flex}#invBulkBar span{flex:1}
+#invBulkBar button{border:1px solid #d5b45f;border-radius:6px;background:#3a3020;color:#ffe7a2;font-weight:800;font-size:calc(2.6*0.9vw);font-size:2.6cqw;padding:0 3.5%;height:80%}
+.itemPopup{position:absolute;inset:0;z-index:8;display:none;align-items:center;justify-content:center;background:#0008}
+.itemPopup.show{display:flex}
+.popCard{width:70%;padding:4% 5%;background:#07111af8;border:2px solid #c8923a;border-radius:10px;color:#f4e3b0;box-shadow:0 6px 24px #000}
+.popCard #invSelectedName,.popCard #equipPopName{font-weight:900;font-size:calc(3.4*0.9vw);font-size:3.4cqw;color:#ffd77a;text-align:center;margin-bottom:3%}
+.popCard #invSelectedInfo,.popCard #equipPopInfo{white-space:pre-line;text-align:center;font-size:calc(2.8*0.9vw);font-size:2.8cqw;line-height:1.35;margin-bottom:4%}
+.popActions{display:flex;flex-direction:column;gap:6px}
+.popActions .gameBtn{font-size:calc(3*0.9vw);font-size:3cqw;padding:2.2% 0;background:#263a31}
+.popActions .gameBtn:disabled{opacity:.4}
+/* Düşen item bildirimi (tek satır, altta) */
+#dropNotice{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 76px);transform:translateX(-50%);z-index:90;max-width:92vw;padding:7px 16px;border-radius:18px;background:#000c;color:#f4f0df;font-weight:800;font-size:14px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s}
+#dropNotice.show{opacity:1}
+#dropNotice.legendary{background:#1a1200e6;border:1px solid #ffd34f;font-size:15px;color:#ffe27a;animation:legGlow .9s ease-in-out infinite alternate}
+@keyframes legGlow{from{color:#ffd34f;text-shadow:0 0 4px #ffb800,0 0 10px #ff9d00;box-shadow:0 0 6px #ffcf3a}to{color:#fff6b8;text-shadow:0 0 8px #fff2a0,0 0 20px #ffd34f,0 0 30px #ffb800;box-shadow:0 0 18px #ffd34f}}
+/* Çıkış onayı */
+#exitConfirm{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;background:#000a}
+#exitConfirm.show{display:flex}
+.exitCard{width:min(300px,86vw);padding:18px;border:2px solid #c8923a;border-radius:12px;background:#07111af8;color:#f4e3b0;text-align:center;font-weight:800}
+.exitBtns{display:flex;gap:10px;margin-top:14px}

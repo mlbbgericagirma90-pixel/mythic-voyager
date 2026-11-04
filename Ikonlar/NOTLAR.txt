@@ -1,0 +1,28 @@
+İKONLAR
+
+Resimler/: kapat.webp (menü kapat), envanter.webp (çanta), istatistik.webp. Ekipman penceresinde kullanılır. Diğer arayüz simgeleri hâlâ emoji.
+
+GÜNCELLEME (2026-10-30): Resimler/ içine geri.png (envanterde ekipmana dön) ve toplu_secme.webp (toplu seçim) eklendi.
+
+GÜNCELLEME — YENİ ARAYÜZ (2026-10-31)
+- Ikonlar/ikonlar.js: tüm HUD burada kurulur (#hudKok). Konumlar ornek.png (1080x2342) oranında, --u birimiyle; üst öğeler üstten, alt öğeler alttan sabit. Yeni ikon = put()/dugme() satırı.
+- Eski id'ler korunur: saveBtn, marketBtn, equipBtn, settingsBtn (= statü artırma paneli), reset (= başlangıca dön), joy/knob (analog). Yeni: ayarlarBtn, mapBtn, ikGizle, arastirmaBtn, siralamaBtn, basarimBtn, afkBtn.
+- Ayarlar, Araştırma, Sıralama, Başarımlar, Afk farmı: şimdilik 'Yakında...' bildirimi.
+- Oyuncu adı seçimi ilk açılışta (3-10 harf/rakam, kopyala-yapıştır engelli). Başka oyuncuyla aynı ad kontrolü online sistemle gelecek.
+- Harita adı kutusu MAP_ADLARI (ikonlar.js) tablosundan; harita02 adı henüz 'HARİTA 2'.
+- Resimler/ içindeki adlar ASCII; altin.webp ve elmas.webp birim ikonları şu an kullanılmıyor (market vb. için hazır).
+- Savaşta hudKok tamamen gizlenir (Savas/savas.js hudToggle).
+
+GÜNCELLEME — HARİTA ADI/LİSTE/KOORDİNAT (2026-10-31)
+- Alt kutu aktif haritanın adını gösterir. Görselli ad için MAP_ADI_RESIM (ikonlar.js), yazılı ad için MAP_ADLARI. Yeni harita eklenince ikisine de satır eklenir (Resimler/harita_adi_harita02.webp örnek).
+- Oyuncu bir haritaya geçince acilanHaritalar'a eklenir. 2+ harita açıksa kutuya tıklanınca sadece açılan haritaların butonları çıkar; butona basınca o haritanın başlangıcına ışınlanır. Savaşta hudKok gizli olduğu için kullanılamaz.
+- Sağ üstte dişlinin üstünde canlı X/Y (birleşik harita koordinatı, px/py).
+
+GÜNCELLEME (2026-10-31)
+- Sağ sütun ikonları soldan değil SAĞDAN sabitlenir (r:), merkezleri başlangıca dön ikonuyla aynı hizada (merkez sağdan 93u). Ekran dar olunca (--u yüksekliğe göre küçülür) kayma olmasın diye. Yeni sağ ikon eklerken r kullan.
+- Alt harita kutusu ekranda yatay ortalanır (left:50% + margin).
+- Harita adı kutusuna tıklayınca #haritaMenu (modalPanel, opak arka plan, oyun görünmez) açılır: sadece açılan haritaların butonları + sağ üstte kapat.webp (X). Seçince/X'e basınca kapanır; Android geri tuşu da kapatır.
+- Harita01 adı artık görselli (harita_adi_harita01.webp).
+
+GÜNCELLEME (2026-11-01)
+- afkBtn artık window.afkAc() açar (Kaynaklar/afk.js). Resimler/afk_panel.webp eklendi.

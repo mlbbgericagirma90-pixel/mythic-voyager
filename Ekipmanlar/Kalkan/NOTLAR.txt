@@ -1,0 +1,4 @@
+KALKAN
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah

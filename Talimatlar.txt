@@ -1,0 +1,49 @@
+Eklenecek itemler ve oranları
+
+Ağaç dalı 
+15 hasar
+
+Tahta kılıç 
+30 hasar
+
+Kolye 01 (Tahta kolye ismi) 
+7 hasar 30 can
+
+Küpe 01 (Tahta küpe ismi)
+5 hasar 1 defans
+
+Yüzük 01 (Tahta yüzük ismi)
+3 hasar 20 can 2 defans
+
+Kask 01 (hepsinin isim baslangici tahta)
+20 can 1 defans
+
+Zırh 01
+30 can 1 defans
+
+Pantolon 01
+20 can 1 defans 
+
+Ayakkabı 01
+20 can 1 defans
+
+
+Tüm itemlerin düşme şansı %0,8 , tahta kılıç %0,2 
+İtemlerin altında düşme oranları yazmasın.
+
+Oyundaki 5 silahı oyundan kaldır. Market kısmına bu yeni ekleyecegimiz itemlerin hepsini ekle ve tahta kılıç haric hepsinin fiyatı 500 altın olsun . Tahta kılıç 750 altın olacak.
+
+
+Efsunlar.jpg deki efsunlar oyuna gelecek en düşüğün gelme ihtimali %60 ikinci derece efsun %30 en iyi efsun gelme şansı %10 olacak. Düşen itemlerden gelecek efsun. Düşen itemin üstüne tiklandigi zaman efsun özelliği yazsın, 
+
+Ekipman tuşuna basılınca sovalyeekipman.png açılacak. şövalye ekipmani ekranında alttaki çanta ikonuna basınca envanter.png açılacak. Düşen eşyalar envantere gelecek . Envanter yuvasında yer açmak için 30 altın isteyecek her satın alım sonrası bu tutar 2 katına çıkacak. 30 60 90 gibi. 
+
+Ekipman penceresinde sağ üst kutudan başlayarak aşağı doğru kask, zırh, pantolon , ayakkabı. Sağ üst kısımdan aşağı doğru ise kolye, küpe, silah, yüzük takılacak. 
+
+
+
+sovalye Karakter baslangic cani 270 - hasari 17 Olacak.
+
+
+
+Yuruyus haritalarini yeni attiklarimla degistir.

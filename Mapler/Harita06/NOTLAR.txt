@@ -1,0 +1,5 @@
+HARITA 06
+
+Durum: BOŞ (henüz yapılmadı).
+Buraya gelecekler: harita resmi (harita.webp/jpg), yürünebilir yol resmi, canavar yerleri, diğer haritalara geçişler.
+Örnek: Mapler/Harita01

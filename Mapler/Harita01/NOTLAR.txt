@@ -1,0 +1,10 @@
+HARITA 01
+
+- Harita resmi dört parça halinde harita.js üzerinden Cekirdek/harita_motoru.js ile yüklenir.
+- Yürüme maskesi harita.js içindeki gömülü PNG'dir; piksel okunması için data URI olarak kalmalıdır.
+- Başlangıç, karakter boyu, canavar konumları ve M1 geçiş alanı harita_ayar.js içindedir.
+- M1 geçiş alanı Menuler/harita_arayuz.js içindeki Map Geçişi düğmesini gösterir; düğme Harita02'ye geçirir.
+- Bu haritanın mevcut koordinatları ve maskesi, Harita02 değişikliklerinde değiştirilmemelidir.
+
+GÜNCELLEME — POLİGON (2026-10-30)
+- Yürüme alanı harita_alan.js (HARITA_ALAN['harita01']). harita.js içindeki gömülü maske silindi; maskN artık kullanılmaz.

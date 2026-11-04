@@ -1,0 +1,24 @@
+EKİPMANLAR
+
+Yeni eşya sistemi: ekipman.js (katalog, efsunlar ve kuşanılan bonuslar). Silah/ klasöründeki eski kılıçlar kaldırıldı. Tür ikonları Ekipmanlar/Resimler/ içindedir.
+
+Silah klasörü örnek alınacak: türün listesi (ad, fiyat, değerler), resimler (Resimler/), bonus fonksiyonları.
+Taşlar (Taslar/) ekipmanlara takılıp onları yükseltecek.
+Not: Klasör adlarında Türkçe karakter yok (Zirh, Kupe, Tilsim...) çünkü APK/sunucu araçları bazen sorun çıkarıyor.
+
+GÜNCELLEME — EKİPMAN SİSTEMİ
+- Eşya tanımları ve efsunlar Ekipmanlar/ekipman.js içindedir. Eski beş kılıç kaldırıldı.
+- Eşyalar: Ağaç Dalı, Tahta Kılıç, Tahta Kolye, Tahta Küpe, Tahta Yüzük, Tahta Kask, Tahta Zırh, Tahta Pantolon, Tahta Ayakkabı.
+- Eksik Tahta Zırh ve Tahta Ayakkabı ikonları için ekipman ekranındaki silüet/emoji yedeği kullanılır.
+
+
+GÜNCELLEME — EKİPMAN YUVALARININ HİZALANMASI (2026-10-29)
+- Envanter/envanter.js içindeki sekiz tıklanabilir ekipman yuvası sovalyeekipman.png arka planındaki ikon çerçevelerine göre yeniden konumlandırıldı.
+- Boş yuvalarda tür isimleri gösterilmez; eşya görselleri yuva boyutuna göre büyütülür. Tıklama ile ilgili yuva filtresine geçiş korunur.
+- Seviye başına stat artışları Degerler/exp.js ve Degerler/karakter_degerleri.js dosyalarında uygulanır: +2 saldırı, +20 can, +1 savunma ve özellik başına %0,5 (en fazla %50) seviye yüzdesi.
+
+GÜNCELLEME — YENİ PANEL (2026-10-30)
+- sovalyeekipman.png ve envanter.png kaldırıldı; panel zemini Menuler/Resimler/envanter_menu.webp. Panel kodu Envanter/envanter.js içinde.
+- ekipman.js: EQUIP_SLOTS artık 11 yuva (cape, costume, charm eklendi; eşyaları henüz yok). Önceki "sekiz yuva / sovalyeekipman.png" notları geçersiz.
+
+GÜNCELLEME (2026-10-30): ekipman.js içinde showBottomNotice(metin, efsanevi) eklendi. dropItem() her düşen item için bildirim verir; enchant.tier==='Yüksek' ise efsanevi (sarı parıltılı). Çanta doluluğu bagCount('equip') ile ölçülür (kuşanılanlar sayılmaz).

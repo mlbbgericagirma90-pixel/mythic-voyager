@@ -1,0 +1,39 @@
+ÇEKİRDEK
+
+- cekirdek_temel.js ... canvas, ortak değişkenler (px, py, moveX...), ekran boyutu, kamera zoom
+- oyun_dongusu.js ..... draw(): haritayı/canavarları/karakteri çizer, yürüme, canavara yaklaşınca savaş, doğma kontrolü
+- joystick.js ......... analog joystick + konum sıfırlama
+- baslat.js ........... EN SON yüklenir: ilk ekran çizimleri ve oyun döngüsünü başlatır
+- stil.css ............ bütün arayüzün stili
+
+Oyun döngüsü canavar konumlarını ve tetikleme mesafesini içeriyor; ileride Mapler'e taşınacak.
+
+
+GÜNCELLEME
+- Ölçek artık karakter boyuna göre (karakterBoy=285 harita px). Harita parçaları ekran boyutuna göre yüklenir (updateMapParts ld/ul).
+
+
+GÜNCELLEME — 2026-10-29
+- Kamera zoom değeri 2.5 -> 5 yapıldı ve karakter ekran boyu sınırı H*.17 -> H*.30 olarak ayarlandı (yaklaşık iki kat yakın görünüm).
+- Hareket hızı 3.28 -> 2.45 karakter boyu/sn (önceki ayar); adım örneklemesi 2 -> 1.5 dünya pikseli ile kenar takılmaları azaltıldı.
+- harita_motoru.js harita başlangıcı/karakter boyunu MAPS nesnesinde tutar; yürüme maskesi çevresindeki örnekleme toleransı artırıldı.
+
+
+GÜNCELLEME — 2026-10-29 (hareket hızı düzeltmesi)
+- Gerçek noktadan noktaya hareket hızı Cekirdek/oyun_dongusu.js içinde boy*2.45 değerinden boy*1.5 değerine indirildi (yaklaşık %39 daha yavaş). Koşu animasyonunun HIZ ayarı değiştirilmedi.
+
+
+GÜNCELLEME — DOKUNMA/KAYDIRMA (2026-10-29)
+- baslat.js içindeki genel touchmove engeli korunur; ancak #marketPanel .modalCard içindeki touchmove engellenmez. Bu istisna mobil WebView'da market listesinin aşağı-yukarı kaydırılmasını sağlar. Başka alanlara global dokunma engelini kaldırmayın; oyun alanında istenmeyen sayfa kaymasını önler.
+- Açılış ekranı Giris/acilis.js ile kapanır; açılış medyası index.html ve Giris/Resimler/ içindedir. Script sırası değişmedi.
+
+GÜNCELLEME (2026-10-30)
+- oyun_dongusu.js: canavar saldırı mesafesi = m.radius x MENZIL_CARPANI (2.5). Engele sürtününce hep aynı yana kayılır (slideSide), 135 dereceye kadar yön denenir; hız değişmedi.
+- stil.css: eski envanter kuralları silindi, yenileri sonda ("Envanter"). cqw birimi kullanılır (eski WebView için vw yedeği var). Düşen item bildirimi (#dropNotice) ve çıkış onayı (#exitConfirm) stilleri sonda.
+
+GÜNCELLEME — POLİGON (2026-10-30)
+- harita_motoru.js: onRoad poligon testi (çift-tek kuralı, 32 px satır kutuları). Eski kenar toleransı poligona işlendi. walkPixels/maskSrc kaldırıldı.
+
+GÜNCELLEME (2026-10-31)
+- joystick.js: knob mesafesi analog arka planın yarıçapına göre hesaplanır (dışına çıkmaz). Analog/başlangıca dön görünümü Ikonlar/ikonlar.js CSS'inde.
+- index.html: #goldCounter kaldırıldı (altın yazısı ikonlar.js'te), script listesine Ikonlar/ikonlar.js eklendi (harita_arayuz.js'ten sonra).

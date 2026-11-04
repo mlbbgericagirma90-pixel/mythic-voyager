@@ -1,0 +1,3 @@
+TAŞLAR
+
+Durum: BOŞ. Ekipman yükseltme taşları buraya gelecek (Ekipmanlar/ ile bağlantılı).

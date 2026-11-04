@@ -1,0 +1,137 @@
+YOL GEZGİN — PROJE NOTLARI
+==========================
+
+Çalıştırmak: index.html dosyasını aç. (Tek dosya gerekirse: YolGezgin_tek_dosya.html.)
+
+KLASÖRLER (her birinde kendi NOTLAR.txt var)
+  Cekirdek/      temel kod, oyun döngüsü, joystick, stil, başlatma
+  Mapler/        Harita01 ve Harita02 (çalışan); Harita03-17 boş iskelet
+  Karakterler/   kahramanın görselleri ve koşu/duruş animasyonu
+  Canavarlar/    her canavar için bir .js + Resimler/
+  Savas/         savaş sistemi ve efektleri
+  Envanter/      çanta
+  Ekipmanlar/    ekipman.js (yeni eşya kataloğu/efsunlar); eski kılıçlar kaldırıldı
+  Menuler/       market, ayarlar, ölüm ekranı, buton yerleşimi
+  Degerler/      tüm sayılar (can, saldırı, defans, canavar değerleri; exp ve element boş)
+  Kaynaklar/     altin (çalışan); elmas, canavar_ozu, parcacik (boş)
+  Taslar/        boş
+  Ikonlar/       boş
+  Yedekleme/     oyuncu kaydı (kayit.js)
+  Giris/         açılış ekranı (çalışan) + karakter seçim ekranı (boş)
+  Npcler/        her haritada 1 NPC (npc_harita01..17.js, boş)
+  Sesler/        ses yöneticisi (boş), Muzik/ ve Efekt/ klasörleri
+
+YÜKLEME SIRASI (index.html içindeki <script> sırası ÖNEMLİ)
+   1. Cekirdek/cekirdek_temel.js
+   2. Mapler/Harita01/harita.js
+   3. Karakterler/karakter_gorselleri.js
+   4. Karakterler/karakter_animasyon.js
+   5. Degerler/karakter_degerleri.js
+   6. Degerler/canavar_degerleri.js
+   7. Degerler/exp.js
+   8. Degerler/element.js
+   9. Canavarlar/kertenkele.js
+  10. Canavarlar/mavi_kertenkele.js
+  11. Canavarlar/yilan.js
+  12. Canavarlar/ejderha.js
+  13. Kaynaklar/altin.js
+  14. Kaynaklar/elmas.js
+  15. Kaynaklar/canavar_ozu.js
+  16. Kaynaklar/parcacik.js
+  17. Savas/savas_degiskenleri.js
+  18. Savas/savas_gorselleri.js
+  19. Ekipmanlar/Silah/silah.js
+  20. Envanter/envanter.js
+  21. Menuler/olum_ekrani.js
+  22. Savas/savas.js
+  23. Menuler/market.js
+  24. Menuler/ayarlar.js
+  25. Menuler/paneller.js
+  26. Yedekleme/kayit.js
+  27. Cekirdek/oyun_dongusu.js
+  28. Cekirdek/joystick.js
+  29. Giris/acilis.js
+  30. Cekirdek/baslat.js
+  31. Menuler/dugme_yerlesim.js
+
+KURALLAR
+- Bu sıra bozulursa oyun açılmaz: bir dosya, kendinden SONRA yüklenen bir değişkeni açılışta kullanamaz.
+- Cekirdek/baslat.js her zaman EN SON (Menuler/dugme_yerlesim.js hariç) yüklenmeli.
+- Yeni .js dosyası eklenirse index.html'e <script src="..."></script> satırı eklenmeli.
+- Klasör/dosya adlarında Türkçe karakter yok (APK araçları sorun çıkarabiliyor).
+- Harita yürüme alanı Mapler/HaritaXX/harita_alan.js poligonundadır (maske PNG kaldırıldı).
+
+DOSYALAR ARASI BAĞLANTILAR (bir şeyi değiştirirken bunlara da bak)
+  Savas/savas.js            -> Degerler/canavar_degerleri.js, Kaynaklar/altin.js, Ekipmanlar/Silah/silah.js, Menuler/olum_ekrani.js
+  Degerler/karakter_degerleri.js -> Ekipmanlar/Silah/silah.js (kılıç bonusu)
+  Menuler/market.js         -> Ekipmanlar/Silah, Envanter, Kaynaklar/altin.js
+  Menuler/ayarlar.js        -> Degerler/karakter_degerleri.js, Kaynaklar/altin.js
+  Yedekleme/kayit.js        -> neredeyse bütün durum değişkenleri (yeni kaydedilecek şey = burası da güncellenmeli)
+  Cekirdek/oyun_dongusu.js  -> Mapler, Karakterler, Canavarlar, Savas (savaşı başlatır)
+
+BİLİNEN EKSİKLER / YAPILACAKLAR
+- Koşu animasyonu geçici, yön değişince boyut/ışık farkı var (Karakterler/). Sola koşarken kılıç el değiştirir.
+- Oyun tek harita varsayıyor; harita geçişi ve "sadece açılan haritayı yükle" henüz yok.
+- Canavar konumları oyun_dongusu.js içinde.
+- exp, element, elmas, canavar özü, parçacık, taşlar, ikonlar, NPC, ses, karakter seçimi: henüz yok (boş iskelet var).
+- İkinci karakter eklenince Karakterler/ iki karakteri taşıyacak şekilde düzenlenecek (bkz. Giris/NOTLAR.txt).
+
+CLAUDE'A NASIL SÖYLENİR (limit tasarrufu)
+- "Sadece Savas ve Degerler klasörüne bak" gibi söyle. Bu NOTLAR.txt'leri okuyup ilgili dosyaları açar.
+- Her seferinde projenin son halini zip olarak yükle.
+
+SON GÜNCELLEME — 2026-10-29
+- Canavar seviye cezası: gereken seviyeden her eksik seviye için can x1,3 ve vuruş x2; hesaplama Savas/savas.js içindeki monsterStatsForLevel() fonksiyonunda. Gereken seviyeler Degerler/canavar_degerleri.js içinde.
+- Harita01 canavar gereksinimleri c1=1, c2=4, c3=7, c4=10, c5=13, c6=16, boss c7=sonSeviye-1.
+- Yeni kayıtta başlangıç gümüş kılıcı kaldırıldı. Mevcut kayıt envanterleri korunur.
+- Ayrıntılar: Savas/NOTLAR.txt, Degerler/NOTLAR.txt, Yedekleme/NOTLAR.txt ve Ekipmanlar/Silah/NOTLAR.txt.
+
+
+GÜNCELLEME — 2026-10-29 (Harita02 testi)
+- Kamera yaklaşık iki kat yaklaştırıldı, hareket hızı azaltıldı ve yürüme maskesi kenar toleransı iyileştirildi.
+- Harita02 eklendi; Harita01 M1 geçiş alanı mevcut Map Geçişi düğmesiyle Harita02'ye geçer. Harita02'de Harita01 canavarları/savaşı devre dışıdır.
+- Bu önceki geçici test kılıcı yeni ekipman güncellemesinde kaldırıldı; yeni sürümde eski kılıçlar bulunmaz.
+- Ayrıntılar: Mapler/NOTLAR.txt, Mapler/Harita01/NOTLAR.txt, Mapler/Harita02/NOTLAR.txt, Cekirdek/NOTLAR.txt, Ekipmanlar/Silah/NOTLAR.txt, Yedekleme/NOTLAR.txt.
+
+GÜNCELLEME — EKİPMAN SİSTEMİ (2026-10-29)
+- Ekipmanlar/ekipman.js yeni eşya kataloğunu, efsun listesini ve kuşanılmış bonuslarını yönetir.
+- Ekipman ve envanter penceresi Menuler/Resimler/envanter_menu.webp görselini kullanır (25 yuvalı çanta). İlk 5 yuva açık; yeni yuva fiyatı 30 altından başlayıp her satın alımda iki katına çıkar.
+- Eski beş kılıç ve geçici test kılıcı kaldırıldı. Yeni kayıt başlangıç canı 270, saldırısı 17.
+- Market ve canavardan düşme yeni eşya listesine geçti; düşen eşyalara düşük/orta/yüksek efsun gelir.
+- Harita02 yürüme parçaları GUNCEL EKLEME.zip içindeki yeni 4 görselle değiştirildi.
+
+NOT: Efsunlar listesindeki Yetenek hasarı ve Yetenek bekleme süresi azaltma özellikleri eşyalara gelebilir ve envanterde gösterilir; oyunda henüz yetenek sistemi bulunmadığı için etkileri yetenek sistemi eklendiğinde bağlanacaktır.
+
+
+GÜNCELLEME — AÇILIŞ EKRANI, MARKET KAYDIRMA VE ÇANTA DÜĞMESİ (2026-10-29)
+- Eski siyah açılış ekranı ve tüm eski metinler kaldırıldı; "Bu bir demodur" ve Furkan'a yönelik yazı artık projede açılış arayüzünde bulunmaz.
+- Yeni açılış tasarımı Giris/Resimler/acilis_arka_plan.webp arka planını, loading_sword.mp4 yükleme animasyonunu ve şeffaf arka planlı sword_vertical.webp / sword_horizontal.webp animasyonlarını kullanır.
+- Açılış sesi Sesler/Muzik/acilis.mp3 üzerinden döngüde çalar; oyun sayfası yüklenince ve en az 4,3 sn gösterildikten sonra durdurulur. Android WebView otomatik sesi engellerse ilk dokunuşta yeniden oynatmayı dener.
+- Market penceresi mobil WebView'da dikey kaydırılabilir. Cekirdek/baslat.js dokunma engeli, market kartının içindeki kaydırma hareketlerine izin verir; oyun alanındaki istemsiz kaydırma/zoom engeli korunur.
+- Ekipman penceresindeki çanta düğmesi görsel olarak tamamen gizlidir ama aynı konumda tıklanabilir kalır; envanteri açma olayı değiştirilmedi.
+- İlgili ayrıntılar: Giris/NOTLAR.txt, Menuler/NOTLAR.txt, Envanter/NOTLAR.txt, Cekirdek/NOTLAR.txt ve Sesler/NOTLAR.txt.
+- Önceki değişiklikler korunur: Harita02 ve yürüyüş parçaları, yavaşlatılmış gerçek hareket hızı, ekipman kataloğu/efsunlar, envanter ve kayıt sistemi. Bu değişiklikler için ayrıntılar ilgili klasör NOTLAR.txt dosyalarındadır.
+- Test sınırı: ZIP bütünlüğü ve JavaScript sözdizimi kontrol edilir; APK/WebView üzerinde görsel ve dokunmatik test ayrıca yapılmalıdır.
+
+
+GÜNCELLEME — SEVİYE BONUSLARI VE EKİPMAN YUVALARI (2026-10-29)
+- Her seviye atlamada +2 saldırı, +20 maksimum can, +1 savunma; ayrıca her özellik için seviye başına %0,5 bonus uygulanır. Seviye kaynaklı yüzde bonusu %50'yi aşamaz.
+- Ekipman görselindeki sekiz yuva arka plandaki ikon çerçevelerinin üzerine konumlandırıldı; boş yuvalardaki Silah/Kask/Zırh vb. yazılar kaldırıldı. Yuva tıklamaları ve envantere geçiş korunur.
+- Ayrıntılar: Degerler/NOTLAR.txt ve Ekipmanlar/NOTLAR.txt.
+
+GÜNCELLEME — ENVANTER YENİLEME + GENEL DÜZELTMELER (2026-10-30)
+- Envanter ekranı baştan: 3 sekme (Ekipman/Büyülü Taş/Diğer Eşyalar), her sekmenin kendi 30 yuvası ve ayrı yuva satın alma fiyatı. Ayrıntı: Envanter/NOTLAR.txt.
+- Kuşanılan eşya envanterde görünmez; ekipman panelinde yuvaya dokununca Çıkar/Değiştir çıkar. Eşya popup'ında Kuşan/Sil/Sat (Sat = market fiyatının 1/3'ü). Toplu seçim (yeşil tik) ile toplu Sat/Sil.
+- Düşen her item için altta tek satır bildirim; en yüksek efsun kademesi (Yüksek) gelirse sarı parıltılı "Efsanevi" yazısı. showBottomNotice() Ekipmanlar/ekipman.js içinde, genel kullanılabilir.
+- Android geri tuşu: açık menüyü kapatır, menü yoksa çıkış onayı sorar (Menuler/paneller.js).
+- Canavar otomatik saldırı mesafesi x2.5 (MENZIL_CARPANI, Cekirdek/oyun_dongusu.js). Engelde kayma düzeltildi (hız aynı). Savaş ekranında karakter 2/3'e küçüldü, canavar büyütüldü (Cekirdek/stil.css sonu).
+- Script sırası değişmedi, yeni .js eklenmedi.
+
+GÜNCELLEME — POLİGON YÜRÜME ALANI (2026-10-30)
+- Yürüme kontrolü artık gömülü PNG maske yerine Mapler/HaritaXX/harita_alan.js poligonu (HARITA_ALAN). Piksel okuma kalktı. harita.js içindeki PNG silindi.
+- index.html: harita_alan.js satırları harita_motoru.js'ten hemen sonra. Başka sıra değişmedi.
+
+GÜNCELLEME — YENİ ARAYÜZ + OYUNCU ADI (2026-10-31)
+- Tüm ekran arayüzü Ikonlar/ikonlar.js'e taşındı (index.html'e Menuler/harita_arayuz.js'ten hemen sonra eklendi). Ayrıntı: Ikonlar/NOTLAR.txt.
+- Elmas çalışıyor (Kaynaklar/elmas.js), altın/elmas 10K/10.1M/10B formatında. Oyuncu adı ilk açılışta seçilir, kayıtta tutulur.
+- Script sırası: yalnızca Ikonlar/ikonlar.js eklendi, diğerleri aynı.

@@ -1,0 +1,6 @@
+ZIRH
+
+Durum: BOŞ (henüz yapılmadı).
+Örnek alınacak klasör: Ekipmanlar/Silah
+
+GÜNCELLEME: Tahta Zırh tanımı Ekipmanlar/ekipman.js içinde. Ayrı ikon verilmediğinden ekipman ekranı silüeti kullanılır.

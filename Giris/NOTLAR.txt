@@ -1,0 +1,25 @@
+GİRİŞ (açılış ve karakter seçim ekranı)
+
+AÇILIŞ (2026-11-02)
+- acilis.js: açılış tam 13 sn (aşağıdaki 2026-11-03 güncellemesine bak) (sayfa başlangıcından itibaren) sürer, sonra kapanır.
+- Resimler/acilis_arka_plan.webp: arka plan (1440x2560). Resimler/yukleme_bar.webp: şeffaf animasyonlu WebP (840x576, 12 fps, 10 sn, tek sefer) ejderha+yükleme barı; bitince acilis.js yukleme_bar_son.webp (tek kare) koyar, bar dolu kalır. (WebM alfa Android WebView'da çalışmadığı için video kullanılmıyor.) Yeni animasyon verilirse aynı boyut/oranda hazırla. Konumu stil.css #introSahne/#introBar (arka plan 1440x2560 oranında, bar merkezi y=2360px).
+- Müzik: Sesler/Muzik/acilis.mp3 (11 sn, döngü yok). Android WebView engellerse ilk dokunuşta tekrar denenir.
+- Açılış sırasında arkada (oyun döngüsü zaten kayıttaki haritayı yükler) harita parçaları ve arayüz görselleri 450 ms aralıkla tek tek decode edilir (yavaş yavaş yükleme).
+- Kapanınca #intro DOM'dan silinir; bar görseli/ses src kaldırılıp bellekten bırakılır (arka plan görseli de DOM ile gider).
+- KARAKTER SEÇİMİ EKLENİRKEN: açılışın arka plan harita/HUD ısıtması (acilis.js tick) karakter seçim ekranına ekstra yük bindirmesin. Karakter seçimi açılışın arkasına değil, açılış bittikten sonra gelecekse ısıtma açılışta kalabilir; seçim ekranı ağırsa harita yüklemesini seçim sonrasına/yavaşlatılmış şekle taşı. Seçim ekranı kapanınca da kendi DOM/görsellerini sil.
+- Menuler/dugme_yerlesim.js içindeki güvenlik zamanlayıcısı 14 sn (eskiden 5 sn açılışı erken kapatıyordu). Açılış süresi değişirse bunu da güncelle.
+- Eski açılış dosyaları (loading_sword.mp4, sword_vertical/horizontal.webp) kaldırıldı.
+- karakter_secimi.js hâlâ boş iskelettir; karakter seçimi eklenince seçimin Yedekleme/kayit.js saveGame/loadGame içine eklenmesi gerekir.
+
+AÇILIŞ GÜNCELLEME (2026-11-03)
+- Süre 13 sn (acilis.js SURE=13000, dugme_yerlesim.js güvenlik zamanlayıcısı 15 sn). Bar WebP bitiş değişimi 10300 ms.
+- Arka plan Resimler/acilis_arka_plan.webp artık 1440x3039; #introSahne bu orana göre (stil.css). Logo: Resimler/logo.webp (#introLogo, gölge CSS drop-shadow). Bar (#introBar) örnek açılış görselindeki yeşil çerçeveye göre konumlu.
+- yukleme_bar.webp: Giris.mp4'ten mavi arka plan silinip (filigran kırpıldı) üretildi, 768x1012, 12 fps, 122 kare, 1 tur; son kare yukleme_bar_son.webp (ejderha son karede durur).
+- Sesler/Muzik/acilis.mp3: yeni müzik 13 sn'ye kesildi, son 1 sn fade-out.
+- Yeni animasyon verilirse aynı yöntemle üret, #introBar konum yüzdelerini güncelle.
+- Açılış başında 1 sn siyah "Yükleniyor..." ekranı (#introYukle, dönen halka). Bu sürede arka plan+logo ön yüklenir; hazır olunca (en az 1 sn) ekran kalkar ve ancak o an yukleme_bar.webp src'si verilir (ejderha animasyonu başı kaçmaz). Toplam süre yine 13 sn (sayfa başından). index.html'deki #introBar'da src yok, JS atar.
+
+AÇILIŞ GÜNCELLEME (2026-11-04)
+- yukleme_bar.webp yeni videodan (hailuo, 928x768, mavi arka plan chroma key ile silindi) üretildi: 640x549, 152 kare, 15 fps (66 ms), 1 tur, ~3.2 MB. Son kare yukleme_bar_son.webp. Kanatlar geniş olduğu için #introBar sahne genişliğinin %96'sı (left 2%, top 54.8%, height 39%); bar çubuğu merkezi ~%85 yükseklikte (eski konum korundu).
+- Yeni animasyon verilirse: mavi (1,35,237) key, mor kenar için mavi kanal kıs, aynı yöntem.
+- Logo zıplama: #introLogo başta scale .3/opaklık 0; yükleme ekranı kalkınca JS 'zipla' sınıfı ekler (stil.css @keyframes logoZipla 1.2 sn: büyü %107, %98, %100).
